@@ -1,6 +1,6 @@
-
 let delay
 let cont = 0
+let contPomodoro = 0
 let duration = 60 * 25
 let display = document.querySelector("#timer")
 let timer = duration
@@ -22,14 +22,19 @@ function startTimer(durationLocal, display) {
             timer = duration
             audio.play();
             cont += 1
+            contPomodoro += 1
+            document.getElementById("num").textContent = "Quantidade de pomodoros: " + contPomodoro
             if (interval.checked && cont % 2 == 1) {
                 document.getElementById("timer").style.color='#8D3BCE'
                 timer = timeInterval
+                if (contPomodoro == 4) {
+                    timer = 60 * 10
+                }
                 startTimer(timer, display)
+                contPomodoro -= 1
             }else{
                 timer = duration
                 document.getElementById("startPause").innerHTML =('<button onclick="start()" class="botao"><span>Start</span></button>');
-                
             }   
         }
 
@@ -54,6 +59,7 @@ function reset() {
     seconds = parseInt(timer % 60, 10)
     minutes = minutes < 10 ? "0" + minutes : minutes
     seconds = seconds < 10 ? "0" + seconds : seconds
+    document.getElementById("timer").style.color='#C7C6C6'
     display.textContent = minutes + ":" + seconds
 }
 
