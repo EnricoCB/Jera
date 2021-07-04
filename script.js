@@ -30,7 +30,6 @@ function startTimer(durationLocal, display) {
                 contPomodoroD += 1
                 document.getElementById("timer").style.color='#8D3BCE'
                 timer = timeInterval
-                console.log(contPomodoroD)
                 if (contPomodoroD == 4) {
                     contPomodoroD = 0
                     escolha = prompt('Você quer estender o tempo para 10 minutos de intervalo dessa vez? [S/N]: ')
