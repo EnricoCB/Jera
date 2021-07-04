@@ -2,6 +2,7 @@ let delay
 let escolha
 let cont = 0
 let contPomodoro = 0
+let contPomodoroD = 0
 let duration = 60 * 25
 let display = document.querySelector("#timer")
 let timer = duration
@@ -26,9 +27,12 @@ function startTimer(durationLocal, display) {
             contPomodoro += 1
             document.getElementById("num").textContent = "Quantidade de pomodoros: " + contPomodoro
             if (interval.checked && cont % 2 == 1) {
+                contPomodoroD += 1
                 document.getElementById("timer").style.color='#8D3BCE'
                 timer = timeInterval
-                if (contPomodoro == 4) {
+                console.log(contPomodoroD)
+                if (contPomodoroD == 4) {
+                    contPomodoroD = 0
                     escolha = prompt('Você quer estender o tempo para 10 minutos de intervalo dessa vez? [S/N]: ')
                     if (escolha.toUpperCase() == "S") {
                         timer = 60 * 10
