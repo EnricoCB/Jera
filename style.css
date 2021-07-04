@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+body {
+    background: #161515;
+}
+
+.informacao {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+#timer {
+    font-size: 50px;
+    color: #C7C6C6;
+}
+
+#startPause {
+    display: inline;
+}
+
+.botoes {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%) 
+}
+
+.botao {
+    background: #282626;
+    color: #C7C6C6;
+    font-size: 20px;
+    padding: 10px 60px 10px 60px;
+    border-radius: 80px;
+    letter-spacing: 15px;
+    margin-left: 40px;
+    text-transform: uppercase;
+}

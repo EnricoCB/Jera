@@ -1,7 +1,8 @@
 let delay
-var duration = 60 * 25
-var display = document.querySelector("#timer")
-var timer = duration
+let duration = 60 * 25
+let display = document.querySelector("#timer")
+let timer = duration
+let audio = new Audio('toque.wav');
 function startTimer(duration, display) {
     delay = setInterval(function() {
         minutes = parseInt(timer / 60, 10)
@@ -15,25 +16,25 @@ function startTimer(duration, display) {
         }
         if (timer < 0) {
             timer = duration
-            console.log(duration)
-            document.getElementById("startPause").innerHTML =('<button onclick="start()"><span>Start</span></button>');
+            audio.play();
+            document.getElementById("startPause").innerHTML =('<button onclick="start()" class="botao"><span>Start</span></button>');
         }
 
     }, 1000)
 } 
 function start() {
     startTimer(duration, display) 
-    document.getElementById("startPause").innerHTML =('<button onclick="pause()"><span>Pause</span></button>');
+    document.getElementById("startPause").innerHTML =('<button onclick="pause()" class="botao"><span>Pause</span></button>');
 }
 
 function pause() {
     clearInterval(delay)
-    document.getElementById("startPause").innerHTML =('<button onclick="start()"><span>Start</span></button>');
+    document.getElementById("startPause").innerHTML =('<button onclick="start()" class="botao"><span>Start</span></button>');
 }
 
 function reset() {
-    document.getElementById("startPause").innerHTML =('<button onclick="start()"><span>Start</span></button>');
-    window.clearInterval(delay);
+    document.getElementById("startPause").innerHTML =('<button onclick="start()" class="botao"><span>Start</span></button>');
+    clearInterval(delay);
     timer = 60 * 25
     minutes = parseInt(timer / 60, 10)
     seconds = parseInt(timer % 60, 10)
