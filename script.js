@@ -29,7 +29,7 @@ function startTimer(durationLocal, display) {
                 document.getElementById("timer").style.color='#8D3BCE'
                 timer = timeInterval
                 if (contPomodoro == 4) {
-                    escolha = prompt('Você quer extender o tempo para 10 minutos de intervalo dessa vez? [S/N]: ')
+                    escolha = prompt('Você quer estender o tempo para 10 minutos de intervalo dessa vez? [S/N]: ')
                     if (escolha.toUpperCase() == "S") {
                         timer = 60 * 10
                     }
@@ -41,6 +41,13 @@ function startTimer(durationLocal, display) {
                 timer = duration
                 document.getElementById("startPause").innerHTML =('<button onclick="start()" class="botao"><span>Start</span></button>');
             }   
+            if (window.Notification&&Notification.permission!=="denied") {
+                Notification.requestPermission(function(status){
+                    let n = new Notification('Terminou', {
+                    body:'O tempo do timer acabou!'
+                })
+            })
+        }
         }
 
     }, 1000)
@@ -68,10 +75,6 @@ function reset() {
     display.textContent = minutes + ":" + seconds
 }
 
-function somar() {
-    duration += 60
-    console.log(duration)
-}
 
 document.addEventListener('DOMContentLoaded', function(){
     if(!Notification){
