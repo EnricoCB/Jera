@@ -1,4 +1,5 @@
 let delay
+let escolha
 let cont = 0
 let contPomodoro = 0
 let duration = 60 * 25
@@ -28,7 +29,11 @@ function startTimer(durationLocal, display) {
                 document.getElementById("timer").style.color='#8D3BCE'
                 timer = timeInterval
                 if (contPomodoro == 4) {
-                    timer = 60 * 10
+                    escolha = prompt('Você quer extender o tempo para 10 minutos de intervalo dessa vez? [S/N]: ')
+                    if (escolha.toUpperCase() == "S") {
+                        timer = 60 * 10
+                    }
+                    
                 }
                 startTimer(timer, display)
                 contPomodoro -= 1
@@ -61,6 +66,11 @@ function reset() {
     seconds = seconds < 10 ? "0" + seconds : seconds
     document.getElementById("timer").style.color='#C7C6C6'
     display.textContent = minutes + ":" + seconds
+}
+
+function somar() {
+    duration += 60
+    console.log(duration)
 }
 
 document.addEventListener('DOMContentLoaded', function(){

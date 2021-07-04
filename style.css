@@ -8,7 +8,7 @@
 body {
     background: #161515;
 }
-P {
+p {
     color: #C7C6C6;
     position: absolute;
     top: 25%;
@@ -17,6 +17,7 @@ P {
     letter-spacing: 15px;
     margin-left: 15px;
 }
+
 .center {
     position: absolute;
     top: 30%;
@@ -101,4 +102,9 @@ input:checked[type="checkbox"]:before {
     margin-left: 40px;
     text-transform: uppercase;
     border-width: 0;
+}
+
+
+span {
+    margin-left: 10px;
 }
